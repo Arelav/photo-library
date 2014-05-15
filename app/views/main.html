@@ -1,0 +1,28 @@
+<div class="header">
+  <h3 class="text-muted">photo search</h3>
+</div>
+<div class="row">
+  <form class="form-inline" role="form" ng-submit="search(photoSearch)">
+    <h1>Photo Search</h1>
+    <div class="form-group">
+      <label class="sr-only" for="search">Password</label>
+      <input type="text" ui-complete ng-model="photoSearch" class="form-control" id="search" placeholder="Search photo">
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+  </form>
+</div>
+<div class="row">
+  <div class="col-xs-8 col-xs-offset-2">
+    <ul class="thumbs">
+      <li ng-repeat="item in data.results | limitTo : 15">
+        <button class="img-thumbnail">
+          <img ng-src="{{item.image.square}}" alt="{{item.title}}">
+          <span>{{item.title | limitTo : 20}}</span>
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="footer">
+  <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+</div>
